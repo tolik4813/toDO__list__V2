@@ -6,6 +6,7 @@ interface TodoStore {
   addTodo: (text: string) => void;
   toggleTodo: (id: string) => void;
   removeTodo: (id: string) => void;
+  clearCompleted: () => void;
 }
 
 const generateId = (): string => {
@@ -35,5 +36,9 @@ export const useTodoStore = create<TodoStore>(set => ({
   removeTodo: (id: string) =>
     set(state => ({
       todos: state.todos.filter(todo => todo.id !== id),
+    })),
+  clearCompleted: () =>
+    set(state => ({
+      todos: state.todos.filter(todo => !todo.completed),
     })),
 }));

@@ -25,6 +25,8 @@ const FORM_STYLES = {
     'bg-gray-800 border-yellow-500 text-white placeholder-gray-400 focus-visible:border-yellow-400 focus-visible:ring-yellow-400/50 focus-visible:ring-[2px] focus-visible:outline-none w-full sm:w-66 transition-all duration-200 focus:scale-[1.02]',
   BUTTON:
     'bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-2 rounded-md transition-all duration-200 w-full sm:w-auto hover:scale-105 active:scale-95',
+  CLEAR_BUTTON:
+    'bg-gray-700 hover:bg-gray-600 text-gray-300 hover:text-white px-3 py-2 rounded-md transition-all duration-200 hover:scale-105 active:scale-95 text-sm',
   ERROR:
     'text-red-400 text-sm text-center bg-red-900/20 border border-red-500/30 rounded-md p-2 animate-in fade-in duration-300',
 } as const;
