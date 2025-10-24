@@ -1,6 +1,6 @@
-import InputTasks from '@/app/customComponents/InputTasks';
-import TodoHeader from '@/app/customComponents/TodoHeader';
-import TasksList from '@/app/customComponents/TasksList';
+import InputTasks from '@/app/customComponents/form/InputTasks';
+import TodoHeader from '@/app/customComponents/todo/TodoHeader';
+import TasksList from '@/app/customComponents/todo/TasksList';
 
 export default function ToDoContainer() {
   return (
