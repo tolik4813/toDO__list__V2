@@ -41,6 +41,10 @@ function VirtualList({
     setScrollTop(target.scrollTop);
   };
 
+  const handleScrollReact = (e: React.UIEvent<HTMLDivElement>) => {
+    setScrollTop(e.currentTarget.scrollTop);
+  };
+
   useEffect(() => {
     const container = containerRef.current;
     if (container) {
@@ -65,7 +69,7 @@ function VirtualList({
         ref={containerRef}
         className="overflow-auto"
         style={{ height: containerHeight }}
-        onScroll={handleScroll}
+        onScroll={handleScrollReact}
       >
         <div style={{ height: totalHeight, position: 'relative' }}>
           <div
