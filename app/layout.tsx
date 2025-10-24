@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Bitcount_Grid_Single } from 'next/font/google';
 import './globals.css';
-import Header from '@/app/components/Header';
+import Header from '@/app/customComponents/Header';
 
 const bitcountGridSingle = Bitcount_Grid_Single({
   variable: '--font-bitcount-grid-single',
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${bitcountGridSingle.variable} antialiased`}>
+      <body className={`${bitcountGridSingle.variable} antialiased bg-black`}>
         <Header />
         {children}
       </body>
