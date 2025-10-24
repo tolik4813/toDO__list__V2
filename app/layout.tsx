@@ -5,7 +5,7 @@ import MainHeader from '@/app/customComponents/MainHeader';
 
 const bitcountGridSingle = Bitcount_Grid_Single({
   variable: '--font-bitcount-grid-single',
-  subsets: ['latin', 'cyrillic'],
+  subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   display: 'swap',
   fallback: ['JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'monospace'],
