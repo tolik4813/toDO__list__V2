@@ -23,7 +23,9 @@ export default function TodoItem({ todo }: TodoItemProps) {
 
   return (
     <div
-      className={`${CSS_CLASSES.ITEM} animate-in slide-in-from-top-2 duration-300`}
+      className={`${
+        todo.completed ? CSS_CLASSES.ITEM_COMPLETED : CSS_CLASSES.ITEM
+      } animate-in slide-in-from-top-2 duration-300`}
     >
       <Checkbox
         checked={todo.completed}
