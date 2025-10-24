@@ -4,7 +4,7 @@ import TasksList from '@/app/customComponents/TasksList';
 
 export default function ToDoContainer() {
   return (
-    <div className="w-120 min-h-120">
+    <div className="w-full max-w-md mx-auto">
       <TodoHeader />
       <InputTasks />
       <TasksList />
