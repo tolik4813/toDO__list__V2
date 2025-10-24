@@ -1,3 +1,17 @@
+export const APP_CONFIG = {
+  MAX_TASK_LENGTH: 200,
+  MIN_TASK_LENGTH: 1,
+  ANIMATION_DURATION: 200,
+} as const;
+
+export const UI_TEXT = {
+  PLACEHOLDER: 'Enter your task...',
+  ADD_BUTTON: 'Add Task',
+  EMPTY_STATE: 'No tasks yet. Add your first task above!',
+  ERROR_REQUIRED: 'Task cannot be empty',
+  ERROR_TOO_LONG: 'Task is too long',
+} as const;
+
 const BASE_STYLES = {
   CONTAINER: 'flex flex-col gap-2',
   ROW: 'flex flex-col sm:flex-row justify-center gap-2',
