@@ -41,8 +41,8 @@ A modern, responsive todo list application built with Next.js 16, featuring a sl
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/yourusername/toDO__list__v2.0.git
-   cd toDO__list__v2.0
+   git clone https://github.com/tolik4813/toDO__list__V2.git
+   cd toDO__list__V2
    ```
 
 2. **Install dependencies**
@@ -145,4 +145,4 @@ npm run build
 npm run start
 ```
 
-Made with ❤️ by [Your Name](https://github.com/yourusername)
+Made with ❤️ by [Anatolii Lehotin](https://github.com/tolik4813)
