@@ -39,8 +39,12 @@ const TODO_STYLES = {
   TEXT_COMPLETED: 'line-through text-gray-400',
   CHECKBOX:
     'border-yellow-500 data-[state=checked]:bg-yellow-500 data-[state=checked]:border-yellow-500 data-[state=checked]:text-black flex-shrink-0 transition-all duration-200',
+  EDIT_BUTTON:
+    'mb-1 text-yellow-400 hover:text-yellow-300 hover:transition-all duration-200 hover:scale-150 flex-shrink-0',
   DELETE_BUTTON:
-    'text-red-400 hover:text-red-300 hover:transition-all duration-200 hover:scale-150 flex-shrink-0',
+    'text-red-400 hover:text-red-300 hover:transition-all duration-200 hover:scale-150 flex-shrink-0 p-1',
+  EDIT_INPUT:
+    'bg-gray-700 border-blue-500 text-white placeholder-gray-400 focus-visible:border-blue-400 focus-visible:ring-blue-400/50 focus-visible:ring-[2px] focus-visible:outline-none flex-1 transition-all duration-200',
   EMPTY: 'text-center text-gray-400 py-8 animate-pulse',
 } as const;
 
