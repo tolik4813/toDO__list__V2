@@ -31,6 +31,8 @@ const FORM_STYLES = {
 
 const TODO_STYLES = {
   ITEM: 'flex items-center justify-center gap-3 p-3 bg-gray-800 border border-gray-700 rounded-md hover:border-yellow-500/50 transition-all duration-200 ease-in-out transform hover:scale-[1.02]',
+  ITEM_COMPLETED:
+    'flex items-center justify-center gap-3 p-3 bg-gray-800/60 border border-gray-600 rounded-md hover:border-yellow-500/30 transition-all duration-200 ease-in-out transform hover:scale-[1.02] opacity-75',
   TEXT: 'mt-1 text-white flex-1 break-all whitespace-normal transition-colors duration-200',
   TEXT_COMPLETED: 'line-through text-gray-400',
   CHECKBOX:
