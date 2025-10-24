@@ -10,7 +10,7 @@ export default function TasksList() {
   if (todos.length === 0) {
     return (
       <div className="mt-6">
-        <div className={CSS_CLASSES.EMPTY_STATE}>
+        <div className={CSS_CLASSES.EMPTY}>
           No tasks yet. Add your first task above!
         </div>
       </div>
@@ -18,7 +18,7 @@ export default function TasksList() {
   }
 
   return (
-    <div className={CSS_CLASSES.TASKS_CONTAINER}>
+    <div className={CSS_CLASSES.SPACING}>
       {todos.map(todo => (
         <TodoItem key={todo.id} todo={todo} />
       ))}
