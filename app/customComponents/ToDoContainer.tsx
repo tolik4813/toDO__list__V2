@@ -1,9 +1,13 @@
 import InputTasks from '@/app/customComponents/InputTasks';
+import TodoHeader from '@/app/customComponents/TodoHeader';
+import TasksList from '@/app/customComponents/TasksList';
 
 export default function ToDoContainer() {
   return (
-    <div className="border-1 border-yellow-500 w-120 h-150">
+    <div className="w-120 min-h-120">
+      <TodoHeader />
       <InputTasks />
+      <TasksList />
     </div>
   );
 }
