@@ -42,7 +42,11 @@
 }
 
 body {
-  font-family: var(--font-bitcount-grid-single), system-ui, sans-serif;
+  font-family:
+    var(--font-bitcount-grid-single), var(--font-jetbrains-mono),
+    'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'SF Mono', 'Monaco',
+    'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace, system-ui,
+    sans-serif;
 }
 
 :root {

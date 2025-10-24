@@ -1,12 +1,21 @@
 import type { Metadata } from 'next';
-import { Bitcount_Grid_Single } from 'next/font/google';
+import { Bitcount_Grid_Single, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import MainHeader from '@/app/customComponents/MainHeader';
 
 const bitcountGridSingle = Bitcount_Grid_Single({
   variable: '--font-bitcount-grid-single',
-  subsets: ['latin'],
+  subsets: ['latin', 'cyrillic'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  display: 'swap',
+  fallback: ['JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'monospace'],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: '--font-jetbrains-mono',
+  subsets: ['latin', 'cyrillic'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -24,7 +33,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${bitcountGridSingle.variable} antialiased bg-black`}>
+      <body
+        className={`${bitcountGridSingle.variable} ${jetbrainsMono.variable} antialiased bg-black`}
+      >
         <MainHeader />
         {children}
       </body>
