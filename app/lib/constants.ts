@@ -10,6 +10,8 @@ export const UI_TEXT = {
   EMPTY_STATE: 'No tasks yet. Add your first task above!',
   ERROR_REQUIRED: 'Task cannot be empty',
   ERROR_TOO_LONG: 'Task is too long',
+  ERROR_UNEXPECTED: 'An unexpected error occurred. Please try again.',
+  ERROR_NETWORK: 'Network error. Please check your connection.',
 } as const;
 
 const BASE_STYLES = {
