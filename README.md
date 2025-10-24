@@ -1,36 +1,148 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📝 TO-DO List App
 
-## Getting Started
+A modern, responsive todo list application built with Next.js 16, featuring a sleek dark theme with yellow accents and smooth animations.
 
-First, run the development server:
+![Todo App Preview](https://img.shields.io/badge/Status-Live-brightgreen)
+![Next.js](https://img.shields.io/badge/Next.js-16.0.0-black)
+![React](https://img.shields.io/badge/React-19.2.0-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
+
+## 🚀 Tech Stack
+
+### Frontend
+
+- **Next.js 16** - React framework with App Router
+- **React 19** - Latest React with concurrent features
+- **TypeScript** - Type-safe JavaScript
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - High-quality component library
+
+### State Management
+
+- **Zustand** - Lightweight state management
+- **Zod** - TypeScript-first schema validation
+
+### Development Tools
+
+- **ESLint** - Code linting and quality
+- **Prettier** - Code formatting
+- **Husky** - Git hooks for quality assurance
+- **lint-staged** - Pre-commit linting
+
+## 🛠️ Installation & Setup
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Quick Start
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/yourusername/toDO__list__v2.0.git
+   cd toDO__list__v2.0
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start development server**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 📋 Available Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Development
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run start        # Start production server
+
+# Code Quality
+npm run lint         # Run ESLint
+npm run format       # Format code with Prettier
+npm run type-check   # Run TypeScript type checking
+
+# Git Hooks
+npm run prepare      # Setup Husky git hooks
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🏗️ Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/
+├── customComponents/     # React components
+│   ├── InputTasks.tsx   # Task input form
+│   ├── TodoItem.tsx     # Individual todo item
+│   ├── TasksList.tsx    # List of todos
+│   └── ToDoContainer.tsx # Main container
+├── hooks/               # Custom React hooks
+│   └── useTodoForm.ts   # Form logic and validation
+├── lib/                 # Utilities and constants
+│   ├── constants.ts     # App constants and CSS classes
+│   └── validation.ts    # Zod schemas
+├── store/               # State management
+│   └── todoStore.ts     # Zustand store
+├── types/               # TypeScript type definitions
+│   └── todo.ts          # Todo interface
+└── globals.css          # Global styles
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎨 Design System
 
-## Learn More
+### Colors
 
-To learn more about Next.js, take a look at the following resources:
+- **Background**: Black (`#000000`)
+- **Primary**: Yellow (`#EAB308`)
+- **Text**: White (`#FFFFFF`)
+- **Secondary**: Gray (`#374151`)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Typography
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Primary Font**: Bitcount Grid Single
+- **Fallback**: JetBrains Mono, Fira Code, Consolas
 
-## Deploy on Vercel
+### Animations
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Duration**: 200ms
+- **Easing**: ease-in-out
+- **Effects**: Scale, fade, slide transitions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔧 Configuration
+
+### Environment Variables
+
+No environment variables required for basic functionality.
+
+### Customization
+
+- Modify `app/lib/constants.ts` for styling and text changes
+- Update `app/lib/validation.ts` for validation rules
+- Customize colors in `app/globals.css`
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+1. Push code to GitHub
+2. Connect repository to Vercel
+3. Deploy automatically
+
+### Other Platforms
+
+```bash
+npm run build
+npm run start
+```
+
+Made with ❤️ by [Your Name](https://github.com/yourusername)
