@@ -3,6 +3,7 @@
 import { Checkbox } from '@/components/ui/checkbox';
 import { useTodoStore } from '@/app/store/todoStore';
 import { Todo } from '@/app/types/todo';
+import { CSS_CLASSES } from '@/app/lib/constants';
 
 interface TodoItemProps {
   todo: Todo;
@@ -16,15 +17,15 @@ export default function TodoItem({ todo }: TodoItemProps) {
   };
 
   return (
-    <div className="flex items-start gap-3 p-3 bg-gray-800 border border-gray-700 rounded-md hover:border-yellow-500/50 transition-colors">
+    <div className={CSS_CLASSES.TODO_ITEM}>
       <Checkbox
         checked={todo.completed}
         onCheckedChange={handleCheckboxChange}
-        className="border-yellow-500 data-[state=checked]:bg-yellow-500 data-[state=checked]:border-yellow-500 data-[state=checked]:text-black mt-0.5 flex-shrink-0"
+        className={CSS_CLASSES.CHECKBOX}
       />
       <span
-        className={`text-white flex-1 break-all whitespace-normal ${
-          todo.completed ? 'line-through text-gray-400' : ''
+        className={`${CSS_CLASSES.TODO_TEXT} ${
+          todo.completed ? CSS_CLASSES.TODO_TEXT_COMPLETED : ''
         }`}
       >
         {todo.text}
