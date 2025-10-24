@@ -36,8 +36,9 @@ function VirtualList({
 
   const offsetY = startIndex * itemHeight;
 
-  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
-    setScrollTop(e.currentTarget.scrollTop);
+  const handleScroll = (e: Event) => {
+    const target = e.target as HTMLDivElement;
+    setScrollTop(target.scrollTop);
   };
 
   useEffect(() => {
