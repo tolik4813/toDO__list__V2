@@ -4,10 +4,20 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useTodoForm } from '@/app/hooks/useTodoForm';
 import { CSS_CLASSES, UI_TEXT } from '@/app/lib/constants';
+import { useTodoStore } from '@/app/store/todoStore';
+import { VscDebugRestart } from 'react-icons/vsc';
 
 export default function InputTasks() {
   const { text, error, isSubmitting, handleSubmit, handleInputChange } =
     useTodoForm();
+  const clearCompleted = useTodoStore(state => state.clearCompleted);
+  const todos = useTodoStore(state => state.todos);
+
+  const hasCompletedTasks = todos.some(todo => todo.completed);
+
+  const handleClearCompleted = () => {
+    clearCompleted();
+  };
 
   return (
     <form onSubmit={handleSubmit} className={CSS_CLASSES.CONTAINER}>
@@ -26,6 +36,16 @@ export default function InputTasks() {
         >
           {isSubmitting ? 'Adding...' : UI_TEXT.ADD_BUTTON}
         </Button>
+        {hasCompletedTasks && (
+          <Button
+            type="button"
+            onClick={handleClearCompleted}
+            className={CSS_CLASSES.CLEAR_BUTTON}
+            title="Clear completed tasks"
+          >
+            <VscDebugRestart className="w-4 h-4" />
+          </Button>
+        )}
       </div>
       {error && (
         <div
