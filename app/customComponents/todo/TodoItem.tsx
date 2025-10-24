@@ -1,5 +1,6 @@
 'use client';
 
+import { memo, useCallback } from 'react';
 import { Checkbox } from '@/components/ui/checkbox';
 import { useTodoStore } from '@/app/store/todoStore';
 import { Todo } from '@/app/types/todo';
@@ -12,7 +13,7 @@ interface TodoItemProps {
   todo: Todo;
 }
 
-export default function TodoItem({ todo }: TodoItemProps) {
+function TodoItem({ todo }: TodoItemProps) {
   const toggleTodo = useTodoStore(state => state.toggleTodo);
   const removeTodo = useTodoStore(state => state.removeTodo);
 
@@ -26,13 +27,13 @@ export default function TodoItem({ todo }: TodoItemProps) {
     setEditText,
   } = useTodoEdit(todo);
 
-  const handleCheckboxChange = () => {
+  const handleCheckboxChange = useCallback(() => {
     toggleTodo(todo.id);
-  };
+  }, [toggleTodo, todo.id]);
 
-  const handleDelete = () => {
+  const handleDelete = useCallback(() => {
     removeTodo(todo.id);
-  };
+  }, [removeTodo, todo.id]);
 
   return (
     <div
@@ -68,3 +69,5 @@ export default function TodoItem({ todo }: TodoItemProps) {
     </div>
   );
 }
+
+export default memo(TodoItem);

@@ -1,10 +1,11 @@
 'use client';
 
+import { memo } from 'react';
 import TodoItem from '@/app/customComponents/todo/TodoItem';
 import { useTodoStore } from '@/app/store/todoStore';
 import { CSS_CLASSES, UI_TEXT } from '@/app/lib/constants';
 
-export default function TasksList() {
+function TasksList() {
   const todos = useTodoStore(state => state.todos);
 
   if (todos.length === 0) {
@@ -23,3 +24,5 @@ export default function TasksList() {
     </div>
   );
 }
+
+export default memo(TasksList);
