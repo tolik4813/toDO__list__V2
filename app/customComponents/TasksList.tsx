@@ -2,6 +2,7 @@
 
 import TodoItem from '@/app/customComponents/TodoItem';
 import { useTodoStore } from '@/app/store/todoStore';
+import { CSS_CLASSES, UI_TEXT } from '@/app/lib/constants';
 
 export default function TasksList() {
   const todos = useTodoStore(state => state.todos);
@@ -9,15 +10,13 @@ export default function TasksList() {
   if (todos.length === 0) {
     return (
       <div className="mt-6">
-        <div className="text-center text-gray-400 py-8">
-          No tasks yet. Add your first task above!
-        </div>
+        <div className={CSS_CLASSES.EMPTY}>{UI_TEXT.EMPTY_STATE}</div>
       </div>
     );
   }
 
   return (
-    <div className="mt-6 space-y-2">
+    <div className={CSS_CLASSES.SPACING}>
       {todos.map(todo => (
         <TodoItem key={todo.id} todo={todo} />
       ))}

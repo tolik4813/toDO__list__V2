@@ -3,6 +3,7 @@
 import { Checkbox } from '@/components/ui/checkbox';
 import { useTodoStore } from '@/app/store/todoStore';
 import { Todo } from '@/app/types/todo';
+import { CSS_CLASSES } from '@/app/lib/constants';
 
 interface TodoItemProps {
   todo: Todo;
@@ -10,25 +11,42 @@ interface TodoItemProps {
 
 export default function TodoItem({ todo }: TodoItemProps) {
   const toggleTodo = useTodoStore(state => state.toggleTodo);
+  const removeTodo = useTodoStore(state => state.removeTodo);
 
   const handleCheckboxChange = () => {
     toggleTodo(todo.id);
   };
 
+  const handleDelete = () => {
+    removeTodo(todo.id);
+  };
+
   return (
-    <div className="flex items-start gap-3 p-3 bg-gray-800 border border-gray-700 rounded-md hover:border-yellow-500/50 transition-colors">
+    <div
+      className={`${
+        todo.completed ? CSS_CLASSES.ITEM_COMPLETED : CSS_CLASSES.ITEM
+      } animate-in slide-in-from-top-2 duration-300`}
+    >
       <Checkbox
         checked={todo.completed}
         onCheckedChange={handleCheckboxChange}
-        className="border-yellow-500 data-[state=checked]:bg-yellow-500 data-[state=checked]:border-yellow-500 data-[state=checked]:text-black mt-0.5 flex-shrink-0"
+        className={CSS_CLASSES.CHECKBOX}
       />
       <span
-        className={`text-white flex-1 break-all whitespace-normal ${
-          todo.completed ? 'line-through text-gray-400' : ''
+        className={`${CSS_CLASSES.TEXT} ${
+          todo.completed ? CSS_CLASSES.TEXT_COMPLETED : ''
         }`}
       >
         {todo.text}
       </span>
+      <button
+        onClick={handleDelete}
+        className={CSS_CLASSES.DELETE_BUTTON}
+        aria-label="Delete task"
+        title="Delete task"
+      >
+        x
+      </button>
     </div>
   );
 }

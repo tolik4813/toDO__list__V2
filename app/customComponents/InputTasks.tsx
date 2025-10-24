@@ -3,29 +3,61 @@
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useTodoForm } from '@/app/hooks/useTodoForm';
+import { CSS_CLASSES, UI_TEXT } from '@/app/lib/constants';
+import { useTodoStore } from '@/app/store/todoStore';
+import { VscDebugRestart } from 'react-icons/vsc';
 
 export default function InputTasks() {
-  const { text, error, handleSubmit, handleInputChange } = useTodoForm();
+  const { text, error, isSubmitting, handleSubmit, handleInputChange } =
+    useTodoForm();
+  const clearCompleted = useTodoStore(state => state.clearCompleted);
+  const todos = useTodoStore(state => state.todos);
+
+  const hasCompletedTasks = todos.some(todo => todo.completed);
+
+  const handleClearCompleted = () => {
+    clearCompleted();
+  };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-      <div className="flex justify-center gap-2">
+    <form onSubmit={handleSubmit} className={CSS_CLASSES.CONTAINER}>
+      <div className={CSS_CLASSES.ROW}>
         <Input
           value={text}
           onChange={handleInputChange}
-          placeholder="Enter your task..."
-          className="bg-gray-800 border-yellow-500 text-white placeholder-gray-400 focus-visible:border-yellow-400 focus-visible:ring-yellow-400/50 focus-visible:ring-[2px] focus-visible:outline-none"
+          placeholder={UI_TEXT.PLACEHOLDER}
+          className={CSS_CLASSES.INPUT}
+          disabled={isSubmitting}
         />
         <Button
           type="submit"
-          className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-2 rounded-md transition-colors"
+          className={CSS_CLASSES.BUTTON}
+          disabled={isSubmitting}
         >
-          Add Task
+          {isSubmitting ? 'Adding...' : UI_TEXT.ADD_BUTTON}
         </Button>
+        {hasCompletedTasks && (
+          <Button
+            type="button"
+            onClick={handleClearCompleted}
+            className={CSS_CLASSES.CLEAR_BUTTON}
+            title="Clear completed tasks"
+          >
+            <VscDebugRestart className="w-4 h-4" />
+          </Button>
+        )}
       </div>
       {error && (
-        <div className="text-red-400 text-sm text-center bg-red-900/20 border border-red-500/30 rounded-md p-2">
-          {error}
+        <div
+          className={`${CSS_CLASSES.ERROR} ${
+            error.type === 'validation'
+              ? 'border-red-500'
+              : error.type === 'network'
+                ? 'border-orange-500'
+                : 'border-gray-500'
+          }`}
+        >
+          {error.message}
         </div>
       )}
     </form>
