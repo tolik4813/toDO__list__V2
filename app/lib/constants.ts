@@ -22,7 +22,7 @@ const BASE_STYLES = {
 
 const FORM_STYLES = {
   INPUT:
-    'bg-gray-800 border-yellow-500 text-white placeholder-gray-400 focus-visible:border-yellow-400 focus-visible:ring-yellow-400/50 focus-visible:ring-[2px] focus-visible:outline-none w-full sm:w-auto transition-all duration-200 focus:scale-[1.02]',
+    'bg-gray-800 border-yellow-500 text-white placeholder-gray-400 focus-visible:border-yellow-400 focus-visible:ring-yellow-400/50 focus-visible:ring-[2px] focus-visible:outline-none w-full sm:w-66 transition-all duration-200 focus:scale-[1.02]',
   BUTTON:
     'bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-2 rounded-md transition-all duration-200 w-full sm:w-auto hover:scale-105 active:scale-95',
   ERROR:
