@@ -2,7 +2,7 @@
 
 import TodoItem from '@/app/customComponents/TodoItem';
 import { useTodoStore } from '@/app/store/todoStore';
-import { CSS_CLASSES } from '@/app/lib/constants';
+import { CSS_CLASSES, UI_TEXT } from '@/app/lib/constants';
 
 export default function TasksList() {
   const todos = useTodoStore(state => state.todos);
@@ -10,9 +10,7 @@ export default function TasksList() {
   if (todos.length === 0) {
     return (
       <div className="mt-6">
-        <div className={CSS_CLASSES.EMPTY}>
-          No tasks yet. Add your first task above!
-        </div>
+        <div className={CSS_CLASSES.EMPTY}>{UI_TEXT.EMPTY_STATE}</div>
       </div>
     );
   }
