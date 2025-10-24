@@ -9,19 +9,19 @@ export default function InputTasks() {
   const { text, error, handleSubmit, handleInputChange } = useTodoForm();
 
   return (
-    <form onSubmit={handleSubmit} className={CSS_CLASSES.FORM_CONTAINER}>
-      <div className={CSS_CLASSES.FORM_ROW}>
+    <form onSubmit={handleSubmit} className={CSS_CLASSES.CONTAINER}>
+      <div className={CSS_CLASSES.ROW}>
         <Input
           value={text}
           onChange={handleInputChange}
           placeholder="Enter your task..."
           className={CSS_CLASSES.INPUT}
         />
-        <Button type="submit" className={CSS_CLASSES.BUTTON_PRIMARY}>
+        <Button type="submit" className={CSS_CLASSES.BUTTON}>
           Add Task
         </Button>
       </div>
-      {error && <div className={CSS_CLASSES.ERROR_CONTAINER}>{error}</div>}
+      {error && <div className={CSS_CLASSES.ERROR}>{error}</div>}
     </form>
   );
 }

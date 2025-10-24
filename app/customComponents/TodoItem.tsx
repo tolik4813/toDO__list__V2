@@ -17,15 +17,15 @@ export default function TodoItem({ todo }: TodoItemProps) {
   };
 
   return (
-    <div className={CSS_CLASSES.TODO_ITEM}>
+    <div className={CSS_CLASSES.ITEM}>
       <Checkbox
         checked={todo.completed}
         onCheckedChange={handleCheckboxChange}
         className={CSS_CLASSES.CHECKBOX}
       />
       <span
-        className={`${CSS_CLASSES.TODO_TEXT} ${
-          todo.completed ? CSS_CLASSES.TODO_TEXT_COMPLETED : ''
+        className={`${CSS_CLASSES.TEXT} ${
+          todo.completed ? CSS_CLASSES.TEXT_COMPLETED : ''
         }`}
       >
         {todo.text}
