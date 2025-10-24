@@ -3,17 +3,16 @@
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useTodoForm } from '@/app/hooks/useTodoForm';
+import { useTodoSelectors } from '@/app/hooks/useTodoSelectors';
 import { CSS_CLASSES, UI_TEXT } from '@/app/lib/constants';
-import { useTodoStore } from '@/app/store/todoStore';
 import { VscDebugRestart } from 'react-icons/vsc';
 
 export default function InputTasks() {
   const { text, error, isSubmitting, handleSubmit, handleInputChange } =
     useTodoForm();
-  const clearCompleted = useTodoStore(state => state.clearCompleted);
-  const todos = useTodoStore(state => state.todos);
+  const { clearCompleted, todoCount } = useTodoSelectors();
 
-  const hasCompletedTasks = todos.some(todo => todo.completed);
+  const hasCompletedTasks = todoCount.completed > 0;
 
   const handleClearCompleted = () => {
     clearCompleted();
