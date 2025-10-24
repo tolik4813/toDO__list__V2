@@ -1,6 +1,6 @@
 'use client';
 
-import TodoItem from '@/app/customComponents/TodoItem';
+import TodoItem from '@/app/customComponents/todo/TodoItem';
 import { useTodoStore } from '@/app/store/todoStore';
 import { CSS_CLASSES, UI_TEXT } from '@/app/lib/constants';
 
