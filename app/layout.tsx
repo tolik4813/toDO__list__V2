@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Bitcount_Grid_Single, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
-import MainHeader from '@/app/customComponents/MainHeader';
+import MainHeader from '@/app/customComponents/layout/MainHeader';
 
 const bitcountGridSingle = Bitcount_Grid_Single({
   variable: '--font-bitcount-grid-single',
