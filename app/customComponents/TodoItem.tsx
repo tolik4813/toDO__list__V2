@@ -11,9 +11,14 @@ interface TodoItemProps {
 
 export default function TodoItem({ todo }: TodoItemProps) {
   const toggleTodo = useTodoStore(state => state.toggleTodo);
+  const removeTodo = useTodoStore(state => state.removeTodo);
 
   const handleCheckboxChange = () => {
     toggleTodo(todo.id);
+  };
+
+  const handleDelete = () => {
+    removeTodo(todo.id);
   };
 
   return (
@@ -32,6 +37,14 @@ export default function TodoItem({ todo }: TodoItemProps) {
       >
         {todo.text}
       </span>
+      <button
+        onClick={handleDelete}
+        className={CSS_CLASSES.DELETE_BUTTON}
+        aria-label="Delete task"
+        title="Delete task"
+      >
+        x
+      </button>
     </div>
   );
 }

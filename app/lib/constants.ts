@@ -30,11 +30,13 @@ const FORM_STYLES = {
 } as const;
 
 const TODO_STYLES = {
-  ITEM: 'flex items-start gap-3 p-3 bg-gray-800 border border-gray-700 rounded-md hover:border-yellow-500/50 transition-all duration-200 ease-in-out transform hover:scale-[1.02]',
-  TEXT: 'text-white flex-1 break-all whitespace-normal transition-colors duration-200',
+  ITEM: 'flex items-center justify-center gap-3 p-3 bg-gray-800 border border-gray-700 rounded-md hover:border-yellow-500/50 transition-all duration-200 ease-in-out transform hover:scale-[1.02]',
+  TEXT: 'mt-1 text-white flex-1 break-all whitespace-normal transition-colors duration-200',
   TEXT_COMPLETED: 'line-through text-gray-400',
   CHECKBOX:
-    'border-yellow-500 data-[state=checked]:bg-yellow-500 data-[state=checked]:border-yellow-500 data-[state=checked]:text-black mt-0.5 flex-shrink-0 transition-all duration-200',
+    'border-yellow-500 data-[state=checked]:bg-yellow-500 data-[state=checked]:border-yellow-500 data-[state=checked]:text-black flex-shrink-0 transition-all duration-200',
+  DELETE_BUTTON:
+    'text-red-400 hover:text-red-300 hover:transition-all duration-200 hover:scale-150 flex-shrink-0',
   EMPTY: 'text-center text-gray-400 py-8 animate-pulse',
 } as const;
 
