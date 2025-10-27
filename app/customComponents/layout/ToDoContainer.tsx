@@ -2,6 +2,7 @@ import InputTasks from '@/app/customComponents/form/InputTasks';
 import SearchInput from '@/app/customComponents/form/SearchInput';
 import TodoHeader from '@/app/customComponents/todo/TodoHeader';
 import TasksList from '@/app/customComponents/todo/TasksList';
+import ProgressBar from '@/app/customComponents/progress/ProgressBar';
 import ErrorBoundary from '@/app/customComponents/layout/ErrorBoundary';
 
 export default function ToDoContainer() {
@@ -13,6 +14,9 @@ export default function ToDoContainer() {
       </ErrorBoundary>
       <ErrorBoundary>
         <SearchInput />
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <ProgressBar />
       </ErrorBoundary>
       <ErrorBoundary>
         <TasksList />
