@@ -17,8 +17,15 @@ describe('TasksList', () => {
   it('should render empty state when no todos', () => {
     mockUseTodoSelectors.mockReturnValue({
       todos: [],
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } as any);
+      addTodo: jest.fn(),
+      toggleTodo: jest.fn(),
+      removeTodo: jest.fn(),
+      clearCompleted: jest.fn(),
+      updateTodo: jest.fn(),
+      completedTodos: [],
+      activeTodos: [],
+      todoCount: { total: 0, completed: 0, active: 0 },
+    });
 
     render(<TasksList />);
     expect(screen.getByText(/No tasks yet/i)).toBeInTheDocument();
@@ -34,8 +41,15 @@ describe('TasksList', () => {
 
     mockUseTodoSelectors.mockReturnValue({
       todos: [mockTodo],
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } as any);
+      addTodo: jest.fn(),
+      toggleTodo: jest.fn(),
+      removeTodo: jest.fn(),
+      clearCompleted: jest.fn(),
+      updateTodo: jest.fn(),
+      completedTodos: [],
+      activeTodos: [mockTodo],
+      todoCount: { total: 1, completed: 0, active: 1 },
+    });
 
     render(<TasksList />);
     expect(screen.getByText('Test todo')).toBeInTheDocument();
@@ -50,8 +64,15 @@ describe('TasksList', () => {
 
     mockUseTodoSelectors.mockReturnValue({
       todos,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } as any);
+      addTodo: jest.fn(),
+      toggleTodo: jest.fn(),
+      removeTodo: jest.fn(),
+      clearCompleted: jest.fn(),
+      updateTodo: jest.fn(),
+      completedTodos: [todos[1]],
+      activeTodos: [todos[0], todos[2]],
+      todoCount: { total: 3, completed: 1, active: 2 },
+    });
 
     render(<TasksList />);
     expect(screen.getByText('Todo 1')).toBeInTheDocument();
