@@ -17,10 +17,16 @@ describe('InputTasks', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     mockUseTodoSelectors.mockReturnValue({
+      todos: [],
+      addTodo: jest.fn(),
+      toggleTodo: jest.fn(),
+      removeTodo: jest.fn(),
       clearCompleted: mockClearCompleted,
+      updateTodo: jest.fn(),
+      completedTodos: [],
+      activeTodos: [],
       todoCount: { total: 0, completed: 0, active: 0 },
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } as any);
+    });
   });
 
   it('should render input field', () => {
