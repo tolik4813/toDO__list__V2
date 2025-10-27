@@ -4,11 +4,13 @@ import { Todo } from '@/app/types/todo';
 
 interface TodoStore {
   todos: Todo[];
+  searchQuery: string;
   addTodo: (text: string) => void;
   toggleTodo: (id: string) => void;
   removeTodo: (id: string) => void;
   clearCompleted: () => void;
   updateTodo: (id: string, text: string) => void;
+  setSearchQuery: (query: string) => void;
 }
 
 const generateId = (): string => {
@@ -19,6 +21,7 @@ export const useTodoStore = create<TodoStore>()(
   persist(
     set => ({
       todos: [],
+      searchQuery: '',
       addTodo: (text: string) =>
         set(state => ({
           todos: [
@@ -51,6 +54,7 @@ export const useTodoStore = create<TodoStore>()(
             todo.id === id ? { ...todo, text: text.trim() } : todo
           ),
         })),
+      setSearchQuery: (query: string) => set({ searchQuery: query }),
     }),
     {
       name: 'todo-storage',
