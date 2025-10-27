@@ -14,7 +14,7 @@ describe('Todo App Integration Tests', () => {
   });
 
   it('should add a new todo and display it in the list', async () => {
-    const { rerender } = render(
+    render(
       <>
         <InputTasks />
         <TasksList />
