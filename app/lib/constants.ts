@@ -45,6 +45,8 @@ const TODO_STYLES = {
     'text-red-400 hover:text-red-300 hover:transition-all duration-200 hover:scale-150 flex-shrink-0 p-1',
   EDIT_INPUT:
     'bg-gray-700 border-blue-500 text-white placeholder-gray-400 focus-visible:border-blue-400 focus-visible:ring-blue-400/50 focus-visible:ring-[2px] focus-visible:outline-none flex-1 transition-all duration-200',
+  SEARCH_INPUT:
+    'bg-gray-800 border-yellow-500 text-white placeholder-gray-400 focus-visible:border-yellow-400 focus-visible:ring-yellow-400/50 focus-visible:ring-[2px] focus-visible:outline-none w-full sm: transition-all duration-200 focus:scale-[1.02]',
   EMPTY: 'text-center text-gray-400 py-8 animate-pulse',
 } as const;
 
