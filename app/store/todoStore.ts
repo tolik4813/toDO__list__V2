@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import { Todo } from '@/app/types/todo';
 
 interface TodoStore {
@@ -14,38 +15,46 @@ const generateId = (): string => {
   return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 };
 
-export const useTodoStore = create<TodoStore>(set => ({
-  todos: [],
-  addTodo: (text: string) =>
-    set(state => ({
-      todos: [
-        ...state.todos,
-        {
-          id: generateId(),
-          text,
-          completed: false,
-          createdAt: new Date(),
-        },
-      ],
-    })),
-  toggleTodo: (id: string) =>
-    set(state => ({
-      todos: state.todos.map(todo =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      ),
-    })),
-  removeTodo: (id: string) =>
-    set(state => ({
-      todos: state.todos.filter(todo => todo.id !== id),
-    })),
-  clearCompleted: () =>
-    set(state => ({
-      todos: state.todos.filter(todo => !todo.completed),
-    })),
-  updateTodo: (id: string, text: string) =>
-    set(state => ({
-      todos: state.todos.map(todo =>
-        todo.id === id ? { ...todo, text: text.trim() } : todo
-      ),
-    })),
-}));
+export const useTodoStore = create<TodoStore>()(
+  persist(
+    set => ({
+      todos: [],
+      addTodo: (text: string) =>
+        set(state => ({
+          todos: [
+            ...state.todos,
+            {
+              id: generateId(),
+              text,
+              completed: false,
+              createdAt: new Date(),
+            },
+          ],
+        })),
+      toggleTodo: (id: string) =>
+        set(state => ({
+          todos: state.todos.map(todo =>
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo
+          ),
+        })),
+      removeTodo: (id: string) =>
+        set(state => ({
+          todos: state.todos.filter(todo => todo.id !== id),
+        })),
+      clearCompleted: () =>
+        set(state => ({
+          todos: state.todos.filter(todo => !todo.completed),
+        })),
+      updateTodo: (id: string, text: string) =>
+        set(state => ({
+          todos: state.todos.map(todo =>
+            todo.id === id ? { ...todo, text: text.trim() } : todo
+          ),
+        })),
+    }),
+    {
+      name: 'todo-storage',
+      partialize: state => ({ todos: state.todos }),
+    }
+  )
+);
