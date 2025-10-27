@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Input } from '@/components/ui/input';
 import { CSS_CLASSES } from '@/app/lib/constants';
 
@@ -12,7 +13,7 @@ interface TodoContentProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function TodoContent({
+function TodoContent({
   isEditing,
   text,
   completed,
@@ -45,3 +46,5 @@ export default function TodoContent({
     </span>
   );
 }
+
+export default memo(TodoContent);
