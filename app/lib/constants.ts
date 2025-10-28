@@ -17,6 +17,9 @@ export const UI_TEXT = {
   SORT_A_Z: 'A-Z',
   SORT_Z_A: 'Z-A',
   SORT_LABEL: 'Sort by',
+  FILTER_ALL: 'All',
+  FILTER_ACTIVE: 'Active',
+  FILTER_COMPLETED: 'Completed',
 } as const;
 
 const BASE_STYLES = {
@@ -52,6 +55,12 @@ const TODO_STYLES = {
     'bg-gray-700 border-blue-500 text-white placeholder-gray-400 focus-visible:border-blue-400 focus-visible:ring-blue-400/50 focus-visible:ring-[2px] focus-visible:outline-none flex-1 transition-all duration-200',
   SEARCH_INPUT:
     'bg-gray-800 border-yellow-500 text-white placeholder-gray-400 focus-visible:border-yellow-400 focus-visible:ring-yellow-400/50 focus-visible:ring-[2px] focus-visible:outline-none w-full sm: transition-all duration-200 focus:scale-[1.02]',
+  FILTER_BUTTON:
+    'px-4 py-2 rounded-md transition-all duration-200 text-sm font-medium border border-gray-600',
+  FILTER_BUTTON_ACTIVE:
+    'bg-yellow-500 text-black border-yellow-500 hover:bg-yellow-600',
+  FILTER_BUTTON_INACTIVE:
+    'bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white',
   EMPTY: 'text-center text-gray-400 py-8 animate-pulse',
 } as const;
 
