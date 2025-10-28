@@ -12,6 +12,11 @@ export const UI_TEXT = {
   ERROR_TOO_LONG: 'Task is too long',
   ERROR_UNEXPECTED: 'An unexpected error occurred. Please try again.',
   ERROR_NETWORK: 'Network error. Please check your connection.',
+  SORT_NEWEST: 'Newest First',
+  SORT_OLDEST: 'Oldest First',
+  SORT_A_Z: 'A-Z',
+  SORT_Z_A: 'Z-A',
+  SORT_LABEL: 'Sort by',
 } as const;
 
 const BASE_STYLES = {

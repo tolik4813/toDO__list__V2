@@ -2,15 +2,19 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { Todo } from '@/app/types/todo';
 
+export type SortOrder = 'newest' | 'oldest' | 'a-z' | 'z-a';
+
 interface TodoStore {
   todos: Todo[];
   searchQuery: string;
+  sortOrder: SortOrder;
   addTodo: (text: string) => void;
   toggleTodo: (id: string) => void;
   removeTodo: (id: string) => void;
   clearCompleted: () => void;
   updateTodo: (id: string, text: string) => void;
   setSearchQuery: (query: string) => void;
+  setSortOrder: (order: SortOrder) => void;
 }
 
 const generateId = (): string => {
@@ -22,6 +26,7 @@ export const useTodoStore = create<TodoStore>()(
     set => ({
       todos: [],
       searchQuery: '',
+      sortOrder: 'newest',
       addTodo: (text: string) =>
         set(state => ({
           todos: [
@@ -55,6 +60,7 @@ export const useTodoStore = create<TodoStore>()(
           ),
         })),
       setSearchQuery: (query: string) => set({ searchQuery: query }),
+      setSortOrder: (order: SortOrder) => set({ sortOrder: order }),
     }),
     {
       name: 'todo-storage',

@@ -3,6 +3,7 @@
 import { memo, useMemo } from 'react';
 import TodoItem from '@/app/customComponents/todo/TodoItem';
 import { useTodoSelectors } from '@/app/hooks/useTodoSelectors';
+import { useTodoSort } from '@/app/hooks/useTodoSort';
 import { useTodoStore } from '@/app/store/todoStore';
 import { CSS_CLASSES, UI_TEXT } from '@/app/lib/constants';
 import VirtualList from '@/app/customComponents/todo/VirtualList';
@@ -10,6 +11,7 @@ import VirtualList from '@/app/customComponents/todo/VirtualList';
 function TasksList() {
   const { todos } = useTodoSelectors();
   const searchQuery = useTodoStore(state => state.searchQuery);
+  const sortOrder = useTodoStore(state => state.sortOrder);
 
   const filteredTodos = useMemo(() => {
     if (!searchQuery.trim()) return todos;
@@ -17,6 +19,8 @@ function TasksList() {
       todo.text.toLowerCase().includes(searchQuery.toLowerCase())
     );
   }, [todos, searchQuery]);
+
+  const { sortedTodos } = useTodoSort(filteredTodos, sortOrder);
 
   if (filteredTodos.length === 0 && !searchQuery) {
     return (
@@ -34,13 +38,13 @@ function TasksList() {
     );
   }
 
-  if (filteredTodos.length > 100) {
-    return <VirtualList items={filteredTodos} />;
+  if (sortedTodos.length > 100) {
+    return <VirtualList items={sortedTodos} />;
   }
 
   return (
     <div className={CSS_CLASSES.SPACING}>
-      {filteredTodos.map(todo => (
+      {sortedTodos.map(todo => (
         <TodoItem key={todo.id} todo={todo} />
       ))}
     </div>
