@@ -12,17 +12,33 @@ function TasksList() {
   const { todos } = useTodoSelectors();
   const searchQuery = useTodoStore(state => state.searchQuery);
   const sortOrder = useTodoStore(state => state.sortOrder);
+  const filterType = useTodoStore(state => state.filterType);
 
   const filteredTodos = useMemo(() => {
-    if (!searchQuery.trim()) return todos;
-    return todos.filter(todo =>
-      todo.text.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-  }, [todos, searchQuery]);
+    let result = todos;
+
+    // Apply search filter
+    if (searchQuery.trim()) {
+      result = result.filter(todo =>
+        todo.text.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    // Apply status filter
+    if (filterType === 'active') {
+      result = result.filter(todo => !todo.completed);
+    } else if (filterType === 'completed') {
+      result = result.filter(todo => todo.completed);
+    }
+
+    return result;
+  }, [todos, searchQuery, filterType]);
 
   const { sortedTodos } = useTodoSort(filteredTodos, sortOrder);
 
-  if (filteredTodos.length === 0 && !searchQuery) {
+  const hasNoResults = sortedTodos.length === 0;
+
+  if (hasNoResults && !searchQuery && filterType === 'all') {
     return (
       <div className="mt-6">
         <div className={CSS_CLASSES.EMPTY}>{UI_TEXT.EMPTY_STATE}</div>
@@ -30,7 +46,7 @@ function TasksList() {
     );
   }
 
-  if (filteredTodos.length === 0 && searchQuery) {
+  if (hasNoResults) {
     return (
       <div className="mt-6">
         <div className={CSS_CLASSES.EMPTY}>Nothing found</div>
