@@ -1,6 +1,7 @@
 import InputTasks from '@/app/customComponents/form/InputTasks';
 import SearchInput from '@/app/customComponents/form/SearchInput';
 import SortDropdown from '@/app/customComponents/form/SortDropdown';
+import FilterButtons from '@/app/customComponents/filter/FilterButtons';
 import TodoHeader from '@/app/customComponents/todo/TodoHeader';
 import TasksList from '@/app/customComponents/todo/TasksList';
 import ProgressBar from '@/app/customComponents/progress/ProgressBar';
@@ -18,6 +19,9 @@ export default function ToDoContainer() {
       </ErrorBoundary>
       <ErrorBoundary>
         <ProgressBar />
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <FilterButtons />
       </ErrorBoundary>
       <ErrorBoundary>
         <SortDropdown />
