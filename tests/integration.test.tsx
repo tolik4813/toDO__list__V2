@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { ToDoContainer } from '@/app/customComponents/layout/ToDoContainer';
+import ToDoContainer from '@/app/customComponents/layout/ToDoContainer';
 
 // Mock all the stores
 jest.mock('@/app/store/todoStore', () => ({

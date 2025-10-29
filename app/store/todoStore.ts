@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { Todo } from '@/app/types';
+import { Todo, SortOrder, FilterType } from '@/app/types';
 
 interface TodoStore {
   todos: Todo[];
