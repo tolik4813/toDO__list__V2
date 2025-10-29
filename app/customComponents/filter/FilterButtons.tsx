@@ -1,6 +1,6 @@
 'use client';
 
-import { useUiStore, FilterType } from '@/app/store/uiStore';
+import { useUiStore } from '@/app/store/uiStore';
 import { CSS_CLASSES, UI_TEXT } from '@/app/lib/constants';
 import { useTranslate } from '@/app/hooks/useTranslate';
 
