@@ -1,0 +1,5 @@
+export const APP_CONFIG = {
+  MAX_TASK_LENGTH: 200,
+  MIN_TASK_LENGTH: 1,
+  ANIMATION_DURATION: 200,
+} as const;
