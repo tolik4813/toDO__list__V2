@@ -65,7 +65,11 @@ describe('useTodoForm', () => {
         isTrusted: false,
         timeStamp: Date.now(),
         type: 'submit',
-      } as React.FormEvent);
+        isDefaultPrevented: jest.fn(),
+        stopPropagation: jest.fn(),
+        isPropagationStopped: jest.fn(),
+        persist: jest.fn(),
+      } as unknown as React.FormEvent);
     });
 
     expect(mockAddTodo).toHaveBeenCalledWith('Test task');
