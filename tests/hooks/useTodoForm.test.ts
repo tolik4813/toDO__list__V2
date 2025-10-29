@@ -55,6 +55,16 @@ describe('useTodoForm', () => {
     await act(async () => {
       await result.current.handleSubmit({
         preventDefault: jest.fn(),
+        nativeEvent: new Event('submit'),
+        currentTarget: null,
+        target: null,
+        bubbles: false,
+        cancelable: false,
+        defaultPrevented: false,
+        eventPhase: 0,
+        isTrusted: false,
+        timeStamp: Date.now(),
+        type: 'submit',
       } as React.FormEvent);
     });
 
