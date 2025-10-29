@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Input } from '@/components/ui/input';
 import { CSS_CLASSES } from '@/app/lib/constants';
+import { useUiStore } from '@/app/store/uiStore';
 import { useTodoStore } from '@/app/store/todoStore';
 import { useTranslate } from '@/app/hooks/useTranslate';
 
@@ -10,7 +11,7 @@ export default function SearchInput() {
   const { t } = useTranslate();
   const [searchQuery, setSearchQuery] = useState('');
   const todos = useTodoStore(state => state.todos);
-  const setSearchQueryStore = useTodoStore(state => state.setSearchQuery);
+  const setSearchQueryStore = useUiStore(state => state.setSearchQuery);
 
   useEffect(() => {
     setSearchQueryStore(searchQuery);
