@@ -1,0 +1,34 @@
+{
+  "app": {
+    "title": "To-Do List",
+    "search": "Search tasks...",
+    "addTask": "Add task",
+    "sort": {
+      "label": "Sort",
+      "newest": "Newest",
+      "oldest": "Oldest",
+      "az": "A → Z",
+      "za": "Z → A"
+    },
+    "filters": {
+      "all": "All",
+      "active": "Active",
+      "completed": "Completed"
+    },
+    "actions": {
+      "clearCompleted": "Clear completed"
+    },
+    "placeholders": {
+      "taskInput": "What needs to be done?"
+    }
+  },
+  "header": {
+    "switch": {
+      "en": "EN",
+      "uk": "UK"
+    }
+  },
+  "todo": {
+    "empty": "No tasks yet"
+  }
+}
