@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-
-export type LanguageCode = 'en' | 'uk';
+import { LanguageCode } from '@/app/types';
 
 interface I18nStore {
   language: LanguageCode;

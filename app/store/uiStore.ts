@@ -1,8 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-
-export type SortOrder = 'newest' | 'oldest' | 'a-z' | 'z-a';
-export type FilterType = 'all' | 'active' | 'completed';
+import { SortOrder, FilterType } from '@/app/types';
 
 interface UiState {
   searchQuery: string;

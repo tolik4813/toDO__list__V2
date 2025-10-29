@@ -7,7 +7,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { useUiStore, SortOrder } from '@/app/store/uiStore';
+import { useUiStore } from '@/app/store/uiStore';
+import { SortOrder } from '@/app/types';
 import { UI_TEXT } from '@/app/lib/constants';
 import { useTranslate } from '@/app/hooks/useTranslate';
 

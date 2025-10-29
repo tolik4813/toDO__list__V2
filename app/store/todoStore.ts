@@ -1,9 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { Todo } from '@/app/types/todo';
-
-export type SortOrder = 'newest' | 'oldest' | 'a-z' | 'z-a';
-export type FilterType = 'all' | 'active' | 'completed';
+import { Todo } from '@/app/types';
 
 interface TodoStore {
   todos: Todo[];
