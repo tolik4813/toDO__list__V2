@@ -9,7 +9,7 @@ export default function LanguageSwitcher() {
 
   return (
     <div
-      className="inline-flex items-center rounded-md border border-gray-600 bg-gray-800 p-1"
+      className="inline-flex items-center rounded-md border border-gray-600 bg-gray-800 p-0.5 sm:p-1"
       role="group"
       aria-label="Language switcher"
     >
@@ -17,7 +17,7 @@ export default function LanguageSwitcher() {
         type="button"
         onClick={() => setLanguage('en')}
         aria-pressed={!isUk}
-        className={`px-3 py-1 text-xs font-medium rounded-sm transition-colors duration-200 ${
+        className={`px-2 py-1 sm:px-3 text-xs font-medium rounded-sm transition-colors duration-200 ${
           !isUk
             ? 'bg-yellow-500 text-black'
             : 'text-gray-300 hover:text-white hover:bg-gray-700'
@@ -29,7 +29,7 @@ export default function LanguageSwitcher() {
         type="button"
         onClick={() => setLanguage('uk')}
         aria-pressed={isUk}
-        className={`px-3 py-1 text-xs font-medium rounded-sm transition-colors duration-200 ${
+        className={`px-2 py-1 sm:px-3 text-xs font-medium rounded-sm transition-colors duration-200 ${
           isUk
             ? 'bg-yellow-500 text-black'
             : 'text-gray-300 hover:text-white hover:bg-gray-700'
