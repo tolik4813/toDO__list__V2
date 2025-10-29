@@ -40,5 +40,28 @@ export function useTranslate() {
     [dict]
   );
 
-  return { t, language };
+  const get = useCallback(
+    (key: string): string | string[] | TranslationDict | undefined => {
+      const parts = key.split('.');
+      let current: string | string[] | TranslationDict | undefined = dict;
+      for (const k of parts) {
+        if (
+          current &&
+          typeof current === 'object' &&
+          k in (current as TranslationDict)
+        ) {
+          current = (current as TranslationDict)[k] as
+            | string
+            | string[]
+            | TranslationDict;
+        } else {
+          return undefined;
+        }
+      }
+      return current;
+    },
+    [dict]
+  );
+
+  return { t, get, language };
 }
