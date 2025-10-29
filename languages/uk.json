@@ -1,0 +1,34 @@
+{
+  "app": {
+    "title": "Список справ",
+    "search": "Пошук задач...",
+    "addTask": "Додати задачу",
+    "sort": {
+      "label": "Сортування",
+      "newest": "Найновіші",
+      "oldest": "Найстаріші",
+      "az": "А → Я",
+      "za": "Я → А"
+    },
+    "filters": {
+      "all": "Усі",
+      "active": "Активні",
+      "completed": "Виконані"
+    },
+    "actions": {
+      "clearCompleted": "Очистити виконані"
+    },
+    "placeholders": {
+      "taskInput": "Що потрібно зробити?"
+    }
+  },
+  "header": {
+    "switch": {
+      "en": "EN",
+      "uk": "UK"
+    }
+  },
+  "todo": {
+    "empty": "Поки що немає задач"
+  }
+}

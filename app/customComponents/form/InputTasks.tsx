@@ -6,8 +6,10 @@ import { useTodoForm } from '@/app/hooks/useTodoForm';
 import { useTodoSelectors } from '@/app/hooks/useTodoSelectors';
 import { CSS_CLASSES, UI_TEXT } from '@/app/lib/constants';
 import { VscDebugRestart } from 'react-icons/vsc';
+import { useTranslate } from '@/app/hooks/useTranslate';
 
 export default function InputTasks() {
+  const { t } = useTranslate();
   const { text, error, isSubmitting, handleSubmit, handleInputChange } =
     useTodoForm();
   const { clearCompleted, todoCount } = useTodoSelectors();
@@ -24,7 +26,7 @@ export default function InputTasks() {
         <Input
           value={text}
           onChange={handleInputChange}
-          placeholder={UI_TEXT.PLACEHOLDER}
+          placeholder={t('app.placeholders.taskInput', UI_TEXT.PLACEHOLDER)}
           className={CSS_CLASSES.INPUT}
           disabled={isSubmitting}
         />
@@ -33,14 +35,16 @@ export default function InputTasks() {
           className={CSS_CLASSES.BUTTON}
           disabled={isSubmitting}
         >
-          {isSubmitting ? 'Adding...' : UI_TEXT.ADD_BUTTON}
+          {isSubmitting
+            ? t('todo.adding', 'Adding...')
+            : t('app.addTask', UI_TEXT.ADD_BUTTON)}
         </Button>
         {hasCompletedTasks && (
           <Button
             type="button"
             onClick={handleClearCompleted}
             className={CSS_CLASSES.CLEAR_BUTTON}
-            title="Clear completed tasks"
+            title={t('app.actions.clearCompleted', 'Clear completed')}
           >
             <VscDebugRestart className="w-4 h-4" />
           </Button>

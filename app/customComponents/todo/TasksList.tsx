@@ -6,9 +6,11 @@ import { useTodoSelectors } from '@/app/hooks/useTodoSelectors';
 import { useTodoSort } from '@/app/hooks/useTodoSort';
 import { useTodoStore } from '@/app/store/todoStore';
 import { CSS_CLASSES, UI_TEXT } from '@/app/lib/constants';
+import { useTranslate } from '@/app/hooks/useTranslate';
 import VirtualList from '@/app/customComponents/todo/VirtualList';
 
 function TasksList() {
+  const { t } = useTranslate();
   const { todos } = useTodoSelectors();
   const searchQuery = useTodoStore(state => state.searchQuery);
   const sortOrder = useTodoStore(state => state.sortOrder);
@@ -39,7 +41,9 @@ function TasksList() {
   if (hasNoResults && !searchQuery && filterType === 'all') {
     return (
       <div className="mt-6">
-        <div className={CSS_CLASSES.EMPTY}>{UI_TEXT.EMPTY_STATE}</div>
+        <div className={CSS_CLASSES.EMPTY}>
+          {t('todo.empty', UI_TEXT.EMPTY_STATE)}
+        </div>
       </div>
     );
   }
@@ -47,7 +51,9 @@ function TasksList() {
   if (hasNoResults) {
     return (
       <div className="mt-6">
-        <div className={CSS_CLASSES.EMPTY}>Nothing found</div>
+        <div className={CSS_CLASSES.EMPTY}>
+          {t('todo.nothing', 'Nothing found')}
+        </div>
       </div>
     );
   }
