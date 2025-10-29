@@ -1,23 +1,13 @@
 import { useState } from 'react';
 import { useTodoStore } from '@/app/store/todoStore';
-import { todoFormSchema } from '@/app/lib/validation';
-import { ZodError } from 'zod';
-import { UI_TEXT } from '@/app/lib/constants';
-
-type ErrorType = 'validation' | 'network' | 'unexpected';
-
-interface ErrorState {
-  message: string;
-  type: ErrorType;
-}
+import { todoFormSchema } from '@/app/lib/validators';
+import { useValidation } from '@/app/hooks/useValidation';
 
 export const useTodoForm = () => {
   const [text, setText] = useState('');
-  const [error, setError] = useState<ErrorState | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const addTodo = useTodoStore(state => state.addTodo);
-
-  const clearError = () => setError(null);
+  const { error, clearError, setValidationError } = useValidation();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,31 +19,7 @@ export const useTodoForm = () => {
       await addTodo(validatedData.text);
       setText('');
     } catch (err) {
-      if (err instanceof ZodError) {
-        const firstError = err.issues[0];
-        if (firstError) {
-          setError({
-            message: firstError.message,
-            type: 'validation',
-          });
-        }
-      } else if (err instanceof Error) {
-        setError({
-          message:
-            err.message.includes('network') || err.message.includes('fetch')
-              ? UI_TEXT.ERROR_NETWORK
-              : err.message,
-          type:
-            err.message.includes('network') || err.message.includes('fetch')
-              ? 'network'
-              : 'unexpected',
-        });
-      } else {
-        setError({
-          message: UI_TEXT.ERROR_UNEXPECTED,
-          type: 'unexpected',
-        });
-      }
+      setValidationError(err);
     } finally {
       setIsSubmitting(false);
     }
