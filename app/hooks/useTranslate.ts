@@ -3,24 +3,37 @@ import { useI18nStore } from '@/app/store/i18nStore';
 import en from '@/languages/en.json';
 import uk from '@/languages/uk.json';
 
-type TranslationDict = { [key: string]: string | TranslationDict };
+type TranslationDict = { [key: string]: string | string[] | TranslationDict };
 
 const dictionaries: Record<'en' | 'uk', TranslationDict> = {
   en: en as TranslationDict,
   uk: uk as TranslationDict,
 };
 
-function getByPath(dict: TranslationDict, path: string): string | undefined {
+function getByPath(
+  dict: TranslationDict,
+  path: string
+): string | string[] | undefined {
   const parts = path.split('.');
-  let current: string | TranslationDict | undefined = dict;
+  let current: string | string[] | TranslationDict | undefined = dict;
   for (const key of parts) {
-    if (typeof current === 'object' && current !== null && key in current) {
-      current = (current as TranslationDict)[key];
+    if (
+      typeof current === 'object' &&
+      current !== null &&
+      !Array.isArray(current) &&
+      key in current
+    ) {
+      current = (current as TranslationDict)[key] as
+        | string
+        | string[]
+        | TranslationDict;
     } else {
       return undefined;
     }
   }
-  return typeof current === 'string' ? current : undefined;
+  return typeof current === 'string' || Array.isArray(current)
+    ? current
+    : undefined;
 }
 
 export function useTranslate() {
