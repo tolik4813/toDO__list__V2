@@ -1,0 +1,47 @@
+{
+  "app": {
+    "title": "To-Do List",
+    "search": "Search tasks...",
+    "addTask": "Add task",
+    "sort": {
+      "label": "Sort",
+      "newest": "Newest",
+      "oldest": "Oldest",
+      "az": "A → Z",
+      "za": "Z → A"
+    },
+    "filters": {
+      "all": "All",
+      "active": "Active",
+      "completed": "Completed"
+    },
+    "actions": {
+      "clearCompleted": "Clear completed"
+    },
+    "placeholders": {
+      "taskInput": "What needs to be done?"
+    }
+  },
+  "header": {
+    "switch": {
+      "en": "EN",
+      "uk": "UK"
+    }
+  },
+  "todo": {
+    "empty": "No tasks yet",
+    "nothing": "Nothing found",
+    "found": "Found",
+    "tasks": "tasks"
+  },
+  "marquee": {
+    "messages": [
+      "Organize your day, crush your goals",
+      "Productivity starts with clarity",
+      "Stay focused, get things done",
+      "Every task completed is a small victory",
+      "Plan wisely, execute flawlessly",
+      "Turn your to-do list into a done list"
+    ]
+  }
+}
