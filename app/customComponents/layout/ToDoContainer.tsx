@@ -12,22 +12,14 @@ export default function ToDoContainer() {
     <div className="w-full max-w-md mx-auto px-4 sm:px-0">
       <TodoHeader />
       <ErrorBoundary>
-        <InputTasks />
-      </ErrorBoundary>
-      <ErrorBoundary>
-        <SearchInput />
-      </ErrorBoundary>
-      <ErrorBoundary>
-        <ProgressBar />
-      </ErrorBoundary>
-      <ErrorBoundary>
-        <FilterButtons />
-      </ErrorBoundary>
-      <ErrorBoundary>
-        <SortDropdown />
-      </ErrorBoundary>
-      <ErrorBoundary>
-        <TasksList />
+        <div className="space-y-4">
+          <InputTasks />
+          <SearchInput />
+          <ProgressBar />
+          <FilterButtons />
+          <SortDropdown />
+          <TasksList />
+        </div>
       </ErrorBoundary>
     </div>
   );

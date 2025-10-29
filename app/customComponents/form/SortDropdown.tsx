@@ -7,14 +7,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { useTodoStore, SortOrder } from '@/app/store/todoStore';
+import { useUiStore } from '@/app/store/uiStore';
+import { SortOrder } from '@/app/types';
 import { UI_TEXT } from '@/app/lib/constants';
 import { useTranslate } from '@/app/hooks/useTranslate';
 
 export default function SortDropdown() {
   const { t } = useTranslate();
-  const sortOrder = useTodoStore(state => state.sortOrder);
-  const setSortOrder = useTodoStore(state => state.setSortOrder);
+  const sortOrder = useUiStore(state => state.sortOrder);
+  const setSortOrder = useUiStore(state => state.setSortOrder);
 
   const handleValueChange = (value: string) => {
     setSortOrder(value as SortOrder);

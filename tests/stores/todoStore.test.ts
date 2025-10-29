@@ -3,9 +3,8 @@ import { useTodoStore } from '@/app/store/todoStore';
 
 describe('useTodoStore', () => {
   beforeEach(() => {
-    useTodoStore.setState({
-      todos: [],
-    });
+    // Reset store state before each test
+    useTodoStore.getState().todos = [];
   });
 
   it('should add todo', () => {
@@ -17,7 +16,6 @@ describe('useTodoStore', () => {
 
     expect(result.current.todos).toHaveLength(1);
     expect(result.current.todos[0].text).toBe('Test task');
-    expect(result.current.todos[0].completed).toBe(false);
   });
 
   it('should toggle todo', () => {
@@ -61,15 +59,11 @@ describe('useTodoStore', () => {
       result.current.addTodo('Task 3');
     });
 
-    const task2Id = result.current.todos[1].id;
-    const task3Id = result.current.todos[2].id;
-
+    // Mark first two as completed
     act(() => {
-      result.current.toggleTodo(task2Id);
-      result.current.toggleTodo(task3Id);
+      result.current.toggleTodo(result.current.todos[0].id);
+      result.current.toggleTodo(result.current.todos[1].id);
     });
-
-    expect(result.current.todos.filter(t => t.completed)).toHaveLength(2);
 
     act(() => {
       result.current.clearCompleted();

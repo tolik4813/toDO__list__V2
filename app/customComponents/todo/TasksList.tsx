@@ -4,17 +4,16 @@ import { memo, useMemo } from 'react';
 import TodoItem from '@/app/customComponents/todo/TodoItem';
 import { useTodoSelectors } from '@/app/hooks/useTodoSelectors';
 import { useTodoSort } from '@/app/hooks/useTodoSort';
-import { useTodoStore } from '@/app/store/todoStore';
+import { useUiStore } from '@/app/store/uiStore';
 import { CSS_CLASSES, UI_TEXT } from '@/app/lib/constants';
 import { useTranslate } from '@/app/hooks/useTranslate';
-import VirtualList from '@/app/customComponents/todo/VirtualList';
 
 function TasksList() {
   const { t } = useTranslate();
   const { todos } = useTodoSelectors();
-  const searchQuery = useTodoStore(state => state.searchQuery);
-  const sortOrder = useTodoStore(state => state.sortOrder);
-  const filterType = useTodoStore(state => state.filterType);
+  const searchQuery = useUiStore(state => state.searchQuery);
+  const sortOrder = useUiStore(state => state.sortOrder);
+  const filterType = useUiStore(state => state.filterType);
 
   const filteredTodos = useMemo(() => {
     let result = todos;
@@ -56,10 +55,6 @@ function TasksList() {
         </div>
       </div>
     );
-  }
-
-  if (sortedTodos.length > 100) {
-    return <VirtualList items={sortedTodos} />;
   }
 
   return (
