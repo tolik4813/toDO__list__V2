@@ -7,7 +7,6 @@ import { useTodoSort } from '@/app/hooks/useTodoSort';
 import { useUiStore } from '@/app/store/uiStore';
 import { CSS_CLASSES, UI_TEXT } from '@/app/lib/constants';
 import { useTranslate } from '@/app/hooks/useTranslate';
-import VirtualList from '@/app/customComponents/todo/VirtualList';
 
 function TasksList() {
   const { t } = useTranslate();
@@ -56,10 +55,6 @@ function TasksList() {
         </div>
       </div>
     );
-  }
-
-  if (sortedTodos.length > 100) {
-    return <VirtualList items={sortedTodos} />;
   }
 
   return (
