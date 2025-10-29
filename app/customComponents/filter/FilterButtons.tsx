@@ -1,6 +1,6 @@
 'use client';
 
-import { useTodoStore, FilterType } from '@/app/store/todoStore';
+import { useUiStore, FilterType } from '@/app/store/uiStore';
 import { CSS_CLASSES, UI_TEXT } from '@/app/lib/constants';
 import { useTranslate } from '@/app/hooks/useTranslate';
 
@@ -20,8 +20,8 @@ const filtersBase = [
 
 export default function FilterButtons() {
   const { t } = useTranslate();
-  const filterType = useTodoStore(state => state.filterType);
-  const setFilterType = useTodoStore(state => state.setFilterType);
+  const filterType = useUiStore(state => state.filterType);
+  const setFilterType = useUiStore(state => state.setFilterType);
 
   return (
     <div className="flex flex-col gap-2 items-center w-full mt-4">

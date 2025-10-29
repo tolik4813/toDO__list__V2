@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { Todo } from '@/app/types/todo';
-import { SortOrder } from '@/app/store/todoStore';
+import { SortOrder } from '@/app/store/uiStore';
 
 const getDateValue = (date: Date | string): number => {
   if (date instanceof Date) {
