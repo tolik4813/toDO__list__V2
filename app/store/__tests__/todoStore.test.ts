@@ -3,7 +3,6 @@ import { useTodoStore } from '@/app/store/todoStore';
 
 describe('useTodoStore', () => {
   beforeEach(() => {
-    // Reset store before each test
     useTodoStore.setState({
       todos: [],
     });

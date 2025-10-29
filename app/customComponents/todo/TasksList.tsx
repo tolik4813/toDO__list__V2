@@ -17,14 +17,12 @@ function TasksList() {
   const filteredTodos = useMemo(() => {
     let result = todos;
 
-    // Apply search filter
     if (searchQuery.trim()) {
       result = result.filter(todo =>
         todo.text.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
 
-    // Apply status filter
     if (filterType === 'active') {
       result = result.filter(todo => !todo.completed);
     } else if (filterType === 'completed') {

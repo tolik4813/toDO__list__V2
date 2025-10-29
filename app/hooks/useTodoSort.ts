@@ -6,7 +6,6 @@ const getDateValue = (date: Date | string): number => {
   if (date instanceof Date) {
     return date.getTime();
   }
-  // Handle string dates (from localStorage deserialization)
   return new Date(date).getTime();
 };
 
