@@ -70,6 +70,19 @@ export const useTodoStore = create<TodoStore>()(
     {
       name: 'todo-storage',
       partialize: state => ({ todos: state.todos }),
+      onRehydrateStorage: () => state => {
+        if (state?.todos) {
+          state.todos = state.todos.map(todo => ({
+            ...todo,
+            createdAt:
+              todo.createdAt instanceof Date
+                ? todo.createdAt
+                : new Date(
+                    (todo.createdAt as string | number | Date) || Date.now()
+                  ),
+          }));
+        }
+      },
     }
   )
 );
