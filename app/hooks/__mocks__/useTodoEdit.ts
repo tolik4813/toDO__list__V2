@@ -1,4 +1,3 @@
-// Mock for useTodoEdit hook
 export const useTodoEdit = jest.fn(() => ({
   isEditing: false,
   editText: '',

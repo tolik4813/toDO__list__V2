@@ -108,7 +108,6 @@ describe('Todo App Integration Tests', () => {
       expect(screen.getByText('Active Task')).toBeInTheDocument();
     });
 
-    // Перевіряємо store
     const updatedState = useTodoStore.getState();
     expect(updatedState.todos).toHaveLength(1);
     expect(updatedState.todos[0].text).toBe('Active Task');

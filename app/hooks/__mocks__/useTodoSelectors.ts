@@ -1,4 +1,3 @@
-// Mock for useTodoSelectors hook
 export const useTodoSelectors = jest.fn(() => ({
   todos: [],
   addTodo: jest.fn(),
