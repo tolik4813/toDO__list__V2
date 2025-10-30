@@ -11,7 +11,7 @@ interface TodoStore {
   toggleTodo: (id: string) => void;
   removeTodo: (id: string) => void;
   clearCompleted: () => void;
-  updateTodo: (id: string, text: string) => void;
+  updateTodo: (id: string, text: string, tags?: string[]) => void;
   setSearchQuery: (query: string) => void;
   setSortOrder: (order: SortOrder) => void;
   setFilterType: (type: FilterType) => void;
@@ -55,10 +55,12 @@ export const useTodoStore = create<TodoStore>()(
         set(state => ({
           todos: state.todos.filter(todo => !todo.completed),
         })),
-      updateTodo: (id: string, text: string) =>
+      updateTodo: (id: string, text: string, tags?: string[]) =>
         set(state => ({
           todos: state.todos.map(todo =>
-            todo.id === id ? { ...todo, text: text.trim() } : todo
+            todo.id === id
+              ? { ...todo, text: text.trim(), ...(tags ? { tags } : {}) }
+              : todo
           ),
         })),
       setSearchQuery: (query: string) => set({ searchQuery: query }),

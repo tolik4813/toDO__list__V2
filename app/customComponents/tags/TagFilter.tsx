@@ -35,6 +35,15 @@ export default function TagFilter() {
           onClick={() => toggle(tag)}
         />
       ))}
+      {selectedTags.length > 0 && (
+        <button
+          type="button"
+          onClick={() => setSelectedTags([])}
+          className="ml-2 text-xs text-gray-200 hover:text-white underline"
+        >
+          Clear
+        </button>
+      )}
     </div>
   );
 }
