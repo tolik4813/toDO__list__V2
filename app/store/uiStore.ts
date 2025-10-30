@@ -15,6 +15,7 @@ interface UiState {
   showProgress: boolean;
   showFilterButtons: boolean;
   showSortDropdown: boolean;
+  showMarquee: boolean;
   // menu
   isMenuOpen: boolean;
   // setters
@@ -30,7 +31,8 @@ interface UiState {
       | 'showSearch'
       | 'showProgress'
       | 'showFilterButtons'
-      | 'showSortDropdown',
+      | 'showSortDropdown'
+      | 'showMarquee',
     value: boolean
   ) => void;
   setMenuOpen: (open: boolean) => void;
@@ -51,6 +53,7 @@ export const useUiStore = create<UiState>()(
       showProgress: true,
       showFilterButtons: true,
       showSortDropdown: true,
+      showMarquee: true,
       isMenuOpen: false,
       setSearchQuery: (query: string) => set({ searchQuery: query }),
       setSortOrder: (order: SortOrder) => set({ sortOrder: order }),
@@ -74,6 +77,7 @@ export const useUiStore = create<UiState>()(
         showProgress: state.showProgress,
         showFilterButtons: state.showFilterButtons,
         showSortDropdown: state.showSortDropdown,
+        showMarquee: state.showMarquee,
         isMenuOpen: state.isMenuOpen,
       }),
     }

@@ -16,6 +16,7 @@ export default function SettingsDrawer() {
     showProgress,
     showFilterButtons,
     showSortDropdown,
+    showMarquee,
     setToggle,
   } = useUiStore();
 
@@ -63,7 +64,7 @@ export default function SettingsDrawer() {
             <Checkbox
               checked={showLanguageSwitcher}
               onCheckedChange={v =>
-                setToggle('showLanguageSwitcher', Boolean(v))
+                setToggle('showLanguageSwitcher', v === true)
               }
             />
             {t('settings.showLanguage', 'Show language switcher')}
@@ -72,7 +73,7 @@ export default function SettingsDrawer() {
           <label className="flex items-center gap-2">
             <Checkbox
               checked={showTagFilter}
-              onCheckedChange={v => setToggle('showTagFilter', Boolean(v))}
+              onCheckedChange={v => setToggle('showTagFilter', v === true)}
             />
             {t('settings.showTagFilter', 'Show tag filter')}
           </label>
@@ -80,7 +81,7 @@ export default function SettingsDrawer() {
           <label className="flex items-center gap-2">
             <Checkbox
               checked={showTagInput}
-              onCheckedChange={v => setToggle('showTagInput', Boolean(v))}
+              onCheckedChange={v => setToggle('showTagInput', v === true)}
             />
             {t('settings.showTagInput', 'Show tag input')}
           </label>
@@ -88,7 +89,7 @@ export default function SettingsDrawer() {
           <label className="flex items-center gap-2">
             <Checkbox
               checked={showSearch}
-              onCheckedChange={v => setToggle('showSearch', Boolean(v))}
+              onCheckedChange={v => setToggle('showSearch', v === true)}
             />
             {t('settings.showSearch', 'Show search')}
           </label>
@@ -96,7 +97,7 @@ export default function SettingsDrawer() {
           <label className="flex items-center gap-2">
             <Checkbox
               checked={showProgress}
-              onCheckedChange={v => setToggle('showProgress', Boolean(v))}
+              onCheckedChange={v => setToggle('showProgress', v === true)}
             />
             {t('settings.showProgress', 'Show progress bar')}
           </label>
@@ -104,7 +105,7 @@ export default function SettingsDrawer() {
           <label className="flex items-center gap-2">
             <Checkbox
               checked={showFilterButtons}
-              onCheckedChange={v => setToggle('showFilterButtons', Boolean(v))}
+              onCheckedChange={v => setToggle('showFilterButtons', v === true)}
             />
             {t('settings.showFilterButtons', 'Show filter buttons')}
           </label>
@@ -112,9 +113,17 @@ export default function SettingsDrawer() {
           <label className="flex items-center gap-2">
             <Checkbox
               checked={showSortDropdown}
-              onCheckedChange={v => setToggle('showSortDropdown', Boolean(v))}
+              onCheckedChange={v => setToggle('showSortDropdown', v === true)}
             />
             {t('settings.showSort', 'Show sort dropdown')}
+          </label>
+
+          <label className="flex items-center gap-2">
+            <Checkbox
+              checked={showMarquee}
+              onCheckedChange={v => setToggle('showMarquee', v === true)}
+            />
+            {t('settings.showMarquee', 'Show marquee text')}
           </label>
         </div>
       </aside>

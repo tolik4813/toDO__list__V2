@@ -1,9 +1,13 @@
 'use client';
 import { useTranslate } from '@/app/hooks/useTranslate';
 import { MARQUEE_FALLBACKS } from '@/app/lib/i18nFallbacks';
+import { useUiStore } from '@/app/store/uiStore';
 
 export default function MarqueeText() {
+  // Call hooks in stable order to satisfy React Rules of Hooks
   const { t, get } = useTranslate();
+  const showMarquee = useUiStore(s => s.showMarquee);
+  if (!showMarquee) return null;
   const dictKey = 'marquee.messages';
   const messages = get(dictKey) as string[] | undefined;
 
