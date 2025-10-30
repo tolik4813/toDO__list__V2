@@ -20,6 +20,9 @@
     },
     "placeholders": {
       "taskInput": "What needs to be done?"
+    },
+    "tags": {
+      "placeholder": "Add tags (comma or Enter)"
     }
   },
   "header": {

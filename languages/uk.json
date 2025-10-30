@@ -20,6 +20,9 @@
     },
     "placeholders": {
       "taskInput": "Що потрібно зробити?"
+    },
+    "tags": {
+      "placeholder": "Додай теги (кома або Enter)"
     }
   },
   "header": {

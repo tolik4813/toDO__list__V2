@@ -56,7 +56,11 @@ export default function InputTasks() {
           </Button>
         )}
       </div>
-      <TagInput value={tags} onChange={setTags} />
+      <TagInput
+        value={tags}
+        onChange={setTags}
+        placeholder={t('app.tags.placeholder', 'Add tags (comma or Enter)')}
+      />
       {error && (
         <div
           className={`${CSS_CLASSES.ERROR} ${

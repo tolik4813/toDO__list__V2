@@ -14,6 +14,7 @@ function TasksList() {
   const searchQuery = useUiStore(state => state.searchQuery);
   const sortOrder = useUiStore(state => state.sortOrder);
   const filterType = useUiStore(state => state.filterType);
+  const selectedTags = useUiStore(state => state.selectedTags);
 
   const filteredTodos = useMemo(() => {
     let result = todos;
@@ -30,8 +31,16 @@ function TasksList() {
       result = result.filter(todo => todo.completed);
     }
 
+    // filter by tags: all selected must be present
+    if (selectedTags.length > 0) {
+      result = result.filter(todo => {
+        const tags = todo.tags || [];
+        return selectedTags.every(tag => tags.includes(tag));
+      });
+    }
+
     return result;
-  }, [todos, searchQuery, filterType]);
+  }, [todos, searchQuery, filterType, selectedTags]);
 
   const { sortedTodos } = useTodoSort(filteredTodos, sortOrder);
 

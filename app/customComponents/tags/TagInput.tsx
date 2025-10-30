@@ -6,9 +6,14 @@ import { useTodoStore } from '@/app/store/todoStore';
 interface TagInputProps {
   value: string[];
   onChange: (tags: string[]) => void;
+  placeholder?: string;
 }
 
-export default function TagInput({ value, onChange }: TagInputProps) {
+export default function TagInput({
+  value,
+  onChange,
+  placeholder,
+}: TagInputProps) {
   const todos = useTodoStore(s => s.todos);
   const [draft, setDraft] = useState('');
 
@@ -55,7 +60,7 @@ export default function TagInput({ value, onChange }: TagInputProps) {
               addTag(draft.replace(/,$/, ''));
             }
           }}
-          placeholder="#work, #home"
+          placeholder={placeholder || '#work, #home'}
           className="bg-gray-800 border-gray-600 text-white rounded-md px-3 py-2 w-full outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400"
         />
         {draft && suggestions.length > 0 && (
