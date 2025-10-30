@@ -16,10 +16,14 @@
       "completed": "Completed"
     },
     "actions": {
-      "clearCompleted": "Clear completed"
+      "clearCompleted": "Clear completed",
+      "clear": "Clear"
     },
     "placeholders": {
       "taskInput": "What needs to be done?"
+    },
+    "tags": {
+      "placeholder": "Add tags (comma or Enter)"
     }
   },
   "header": {

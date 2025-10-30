@@ -9,14 +9,17 @@ export const useTodoForm = () => {
   const addTodo = useTodoStore(state => state.addTodo);
   const { error, clearError, setValidationError } = useValidation();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (
+    e: React.FormEvent,
+    extras?: { tags?: string[] }
+  ) => {
     e.preventDefault();
     clearError();
     setIsSubmitting(true);
 
     try {
       const validatedData = todoFormSchema.parse({ text });
-      await addTodo(validatedData.text);
+      await addTodo(validatedData.text, extras?.tags);
       setText('');
     } catch (err) {
       setValidationError(err);

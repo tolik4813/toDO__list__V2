@@ -16,10 +16,14 @@
       "completed": "Виконані"
     },
     "actions": {
-      "clearCompleted": "Очистити виконані"
+      "clearCompleted": "Очистити виконані",
+      "clear": "Скинути"
     },
     "placeholders": {
       "taskInput": "Що потрібно зробити?"
+    },
+    "tags": {
+      "placeholder": "Додай теги (кома або Enter)"
     }
   },
   "header": {
