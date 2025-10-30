@@ -1,4 +1,5 @@
 'use client';
+import { useEffect } from 'react';
 import { useUiStore } from '@/app/store/uiStore';
 import { Checkbox } from '@/components/ui/checkbox';
 import { useTranslate } from '@/app/hooks/useTranslate';
@@ -18,18 +19,32 @@ export default function SettingsDrawer() {
     setToggle,
   } = useUiStore();
 
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [setOpen]);
+
   return (
-    <div className="relative z-40">
+    <div className={`fixed inset-0 z-40 ${isOpen ? 'visible' : 'invisible'}`}>
+      <div
+        className={`absolute inset-0 bg-black/50 transition-opacity ${
+          isOpen ? 'opacity-100' : 'opacity-0'
+        }`}
+        onClick={() => setOpen(false)}
+        aria-hidden="true"
+      />
       <aside
-        className={`${
-          isOpen
-            ? 'opacity-100 translate-y-0'
-            : 'pointer-events-none opacity-0 -translate-y-2'
-        } absolute left-[-10px] top-[-5px] w-80 max-w-[92vw] rounded-md border border-gray-700 bg-gray-900 p-4 text-gray-200 shadow-xl transition-all`}
-        role="menu"
-        aria-label="Burger menu"
+        className={`absolute left-0 top-0 h-full w-80 max-w-[85vw] border-r border-gray-700 bg-gray-900 text-gray-200 shadow-2xl transition-transform ${
+          isOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Settings sidebar"
       >
-        <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center justify-between p-4 border-b border-gray-800">
           <h2 className="text-lg font-semibold">
             {t('settings.title', 'Settings')}
           </h2>
@@ -43,7 +58,7 @@ export default function SettingsDrawer() {
           </button>
         </div>
 
-        <div className="space-y-3 text-sm">
+        <div className="space-y-3 text-sm p-4">
           <label className="flex items-center gap-2">
             <Checkbox
               checked={showLanguageSwitcher}
