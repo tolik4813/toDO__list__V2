@@ -81,16 +81,9 @@ function TodoItem({ todo }: TodoItemProps) {
           <TagInput
             value={editTags}
             onChange={setEditTags}
+            onBlur={() => updateTodo(todo.id, editText, editTags)}
             placeholder="#work, #home"
           />
-          <div className="h-2" />
-          <button
-            type="button"
-            onClick={() => updateTodo(todo.id, editText, editTags)}
-            className="text-xs text-gray-300 hover:text-white underline"
-          >
-            Save tags
-          </button>
         </div>
       )}
 

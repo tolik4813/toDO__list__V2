@@ -7,12 +7,14 @@ interface TagInputProps {
   value: string[];
   onChange: (tags: string[]) => void;
   placeholder?: string;
+  onBlur?: () => void;
 }
 
 export default function TagInput({
   value,
   onChange,
   placeholder,
+  onBlur,
 }: TagInputProps) {
   const todos = useTodoStore(s => s.todos);
   const [draft, setDraft] = useState('');
@@ -54,6 +56,7 @@ export default function TagInput({
         <input
           value={draft}
           onChange={e => setDraft(e.target.value)}
+          onBlur={onBlur}
           onKeyDown={e => {
             if (e.key === 'Enter' || e.key === ',') {
               e.preventDefault();
