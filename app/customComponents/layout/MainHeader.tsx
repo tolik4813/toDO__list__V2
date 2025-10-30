@@ -18,19 +18,19 @@ export default function MainHeader() {
         <SettingsDrawer />
       </div>
 
-      {/* Title - centered */}
-      <h1 className="text-xl sm:text-2xl md:text-3xl text-center font-bold flex-1">
-        {t('app.title', 'To-Do List')}
-      </h1>
+      {/* Title - absolute centered regardless of side content */}
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+        <h1 className="text-xl sm:text-2xl md:text-3xl text-center font-bold">
+          {t('app.title', 'To-Do List')}
+        </h1>
+      </div>
 
       {/* Right controls */}
       <div className="flex items-center gap-3">
         {showTagFilter && <TagFilter />}
-        {showLanguageSwitcher && (
-          <div className="w-16 sm:w-20 flex justify-end">
-            <LanguageSwitcher />
-          </div>
-        )}
+        <div className="w-16 sm:w-20 flex justify-end">
+          {showLanguageSwitcher && <LanguageSwitcher />}
+        </div>
       </div>
     </div>
   );
