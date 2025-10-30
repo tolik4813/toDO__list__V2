@@ -3,8 +3,11 @@ import { useMemo } from 'react';
 import { useTodoStore } from '@/app/store/todoStore';
 import { useUiStore } from '@/app/store/uiStore';
 import TagBadge from '@/app/customComponents/tags/TagBadge';
+import { useTranslate } from '@/app/hooks/useTranslate';
 
 export default function TagFilter() {
+  // Hooks must keep stable order
+  const { t } = useTranslate();
   const todos = useTodoStore(s => s.todos);
   const selectedTags = useUiStore(s => s.selectedTags);
   const setSelectedTags = useUiStore(s => s.setSelectedTags);
@@ -41,7 +44,7 @@ export default function TagFilter() {
           onClick={() => setSelectedTags([])}
           className="ml-2 text-xs text-gray-200 hover:text-white underline"
         >
-          Clear
+          {t('app.actions.clear', 'Clear')}
         </button>
       )}
     </div>
