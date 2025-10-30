@@ -47,5 +47,16 @@
       "Plan wisely, execute flawlessly",
       "Turn your to-do list into a done list"
     ]
+  },
+  "settings": {
+    "title": "Settings",
+    "showLanguage": "Show language switcher",
+    "showTagFilter": "Show tag filter",
+    "showTagInput": "Show tag input",
+    "showSearch": "Show search",
+    "showProgress": "Show progress bar",
+    "showFilterButtons": "Show filter buttons",
+    "showSort": "Show sort dropdown",
+    "showMarquee": "Show marquee text"
   }
 }

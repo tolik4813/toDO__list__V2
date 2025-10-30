@@ -31,7 +31,6 @@ function TasksList() {
       result = result.filter(todo => todo.completed);
     }
 
-    // filter by tags: all selected must be present
     if (selectedTags.length > 0) {
       result = result.filter(todo => {
         const tags = todo.tags || [];

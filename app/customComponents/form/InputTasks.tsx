@@ -9,6 +9,7 @@ import { VscDebugRestart } from 'react-icons/vsc';
 import { useTranslate } from '@/app/hooks/useTranslate';
 import TagInput from '@/app/customComponents/tags/TagInput';
 import { useState } from 'react';
+import { useUiStore } from '@/app/store/uiStore';
 
 export default function InputTasks() {
   const { t } = useTranslate();
@@ -16,6 +17,7 @@ export default function InputTasks() {
     useTodoForm();
   const { clearCompleted, todoCount } = useTodoSelectors();
   const [tags, setTags] = useState<string[]>([]);
+  const showTagInput = useUiStore(s => s.showTagInput);
 
   const hasCompletedTasks = todoCount.completed > 0;
 
@@ -56,11 +58,13 @@ export default function InputTasks() {
           </Button>
         )}
       </div>
-      <TagInput
-        value={tags}
-        onChange={setTags}
-        placeholder={t('app.tags.placeholder', 'Add tags (comma or Enter)')}
-      />
+      {showTagInput && (
+        <TagInput
+          value={tags}
+          onChange={setTags}
+          placeholder={t('app.tags.placeholder', 'Add tags (comma or Enter)')}
+        />
+      )}
       {error && (
         <div
           className={`${CSS_CLASSES.ERROR} ${
