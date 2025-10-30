@@ -67,7 +67,6 @@ function TodoItem({ todo }: TodoItemProps) {
         onChange={e => setEditText(e.target.value)}
       />
 
-      {/* Tags row */}
       {!isEditing && showTags && (
         <div className="flex flex-wrap gap-2 ml-2">
           {(todo.tags || []).map(tag => (

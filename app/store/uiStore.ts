@@ -7,7 +7,6 @@ interface UiState {
   sortOrder: SortOrder;
   filterType: FilterType;
   selectedTags: string[];
-  // toggles
   showLanguageSwitcher: boolean;
   showTagFilter: boolean;
   showTagInput: boolean;
@@ -16,9 +15,7 @@ interface UiState {
   showFilterButtons: boolean;
   showSortDropdown: boolean;
   showMarquee: boolean;
-  // menu
   isMenuOpen: boolean;
-  // setters
   setSearchQuery: (query: string) => void;
   setSortOrder: (order: SortOrder) => void;
   setFilterType: (type: FilterType) => void;
@@ -45,7 +42,6 @@ export const useUiStore = create<UiState>()(
       sortOrder: 'newest',
       filterType: 'all',
       selectedTags: [],
-      // default: all on
       showLanguageSwitcher: true,
       showTagFilter: true,
       showTagInput: true,
