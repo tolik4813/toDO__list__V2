@@ -7,12 +7,15 @@ import { useTodoSelectors } from '@/app/hooks/useTodoSelectors';
 import { CSS_CLASSES, UI_TEXT } from '@/app/lib/constants';
 import { VscDebugRestart } from 'react-icons/vsc';
 import { useTranslate } from '@/app/hooks/useTranslate';
+import TagInput from '@/app/customComponents/tags/TagInput';
+import { useState } from 'react';
 
 export default function InputTasks() {
   const { t } = useTranslate();
   const { text, error, isSubmitting, handleSubmit, handleInputChange } =
     useTodoForm();
   const { clearCompleted, todoCount } = useTodoSelectors();
+  const [tags, setTags] = useState<string[]>([]);
 
   const hasCompletedTasks = todoCount.completed > 0;
 
@@ -21,7 +24,10 @@ export default function InputTasks() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={CSS_CLASSES.CONTAINER}>
+    <form
+      onSubmit={e => handleSubmit(e, { tags })}
+      className={CSS_CLASSES.CONTAINER}
+    >
       <div className={CSS_CLASSES.ROW}>
         <Input
           value={text}
@@ -50,6 +56,7 @@ export default function InputTasks() {
           </Button>
         )}
       </div>
+      <TagInput value={tags} onChange={setTags} />
       {error && (
         <div
           className={`${CSS_CLASSES.ERROR} ${

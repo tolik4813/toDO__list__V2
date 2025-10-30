@@ -1,6 +1,7 @@
 'use client';
 import LanguageSwitcher from '@/app/customComponents/layout/LanguageSwitcher';
 import { useTranslate } from '@/app/hooks/useTranslate';
+import TagFilter from '@/app/customComponents/tags/TagFilter';
 
 export default function MainHeader() {
   const { t } = useTranslate();
@@ -14,9 +15,12 @@ export default function MainHeader() {
         {t('app.title', 'To-Do List')}
       </h1>
 
-      {/* Language switcher */}
-      <div className="w-16 sm:w-20 flex justify-end">
-        <LanguageSwitcher />
+      {/* Right controls */}
+      <div className="flex items-center gap-3">
+        <TagFilter />
+        <div className="w-16 sm:w-20 flex justify-end">
+          <LanguageSwitcher />
+        </div>
       </div>
     </div>
   );

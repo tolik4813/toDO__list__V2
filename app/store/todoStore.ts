@@ -7,7 +7,7 @@ interface TodoStore {
   searchQuery: string;
   sortOrder: SortOrder;
   filterType: FilterType;
-  addTodo: (text: string) => void;
+  addTodo: (text: string, tags?: string[]) => void;
   toggleTodo: (id: string) => void;
   removeTodo: (id: string) => void;
   clearCompleted: () => void;
@@ -28,7 +28,7 @@ export const useTodoStore = create<TodoStore>()(
       searchQuery: '',
       sortOrder: 'newest',
       filterType: 'all',
-      addTodo: (text: string) =>
+      addTodo: (text: string, tags?: string[]) =>
         set(state => ({
           todos: [
             ...state.todos,
@@ -37,6 +37,7 @@ export const useTodoStore = create<TodoStore>()(
               text,
               completed: false,
               createdAt: new Date(),
+              tags: tags && tags.length ? tags : [],
             },
           ],
         })),
