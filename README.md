@@ -8,6 +8,12 @@ A modern, responsive todo list application built with Next.js 16, featuring a sl
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
+## 📸 Screenshot
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/a89c71a2-7552-44aa-b281-d46f344d80fa" alt="To-Do List App Screenshot" width="800" />
+</div>
+
 ## 🚀 Tech Stack
 
 ### Frontend
