@@ -6,6 +6,7 @@ A modern, responsive todo list application built with Next.js 16, featuring a sl
 ![Next.js](https://img.shields.io/badge/Next.js-16.0.0-black)
 ![React](https://img.shields.io/badge/React-19.2.0-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## 🚀 Tech Stack
 
@@ -144,5 +145,9 @@ No environment variables required for basic functionality.
 npm run build
 npm run start
 ```
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 Made with ❤️ by [Anatolii Lehotin](https://github.com/tolik4813)
